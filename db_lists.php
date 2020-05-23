@@ -19,7 +19,7 @@ $token = $_SESSION['token'];
 
 <!-- Title -->
 <div class="page-header">
-    <h1>Pi-hole 查询数据库计算热门列表</h1>
+    <h1>活跃列表</h1>
 </div>
 
 
@@ -41,7 +41,7 @@ $token = $_SESSION['token'];
 </div>
 
 <div id="timeoutWarning" class="alert alert-warning alert-dismissible fade in" role="alert" hidden="true">
-    当您指定范围为多大时，Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
+    如果您指定范围过大，当 Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
 </div>
 
 <?php
@@ -58,7 +58,7 @@ else
     <div class="<?php echo $tablelayout; ?>">
       <div class="box" id="domain-frequency">
         <div class="box-header with-border">
-          <h3 class="box-title">热门域名</h3>
+          <h3 class="box-title">活跃的域名</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -85,7 +85,7 @@ else
     <div class="<?php echo $tablelayout; ?>">
       <div class="box" id="ad-frequency">
         <div class="box-header with-border">
-          <h3 class="box-title">阻止的域名</h3>
+          <h3 class="box-title">活跃阻止域</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

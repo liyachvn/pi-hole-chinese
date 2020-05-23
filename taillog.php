@@ -9,7 +9,7 @@
 ?>
 <!-- Title -->
 <div class="page-header">
-    <h1>输出 pihole.log 文件的最后几行（实时）</h1>
+    <h1>跟踪 pihole.log（实时）</h1>
 </div>
 
 <div class="checkbox"><label><input type="checkbox" name="active" checked id="chk1"> 更新时自动滚动</label></div>

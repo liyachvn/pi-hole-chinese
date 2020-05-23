@@ -18,7 +18,7 @@
     <div class="col-md-6">
       <div class="box" id="domain-frequency">
         <div class="box-header with-border">
-          <h3 class="box-title">允许的查询</h3>
+          <h3 class="box-title">已放行的查询</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -28,7 +28,7 @@
                     <tr>
                     <th>域名</th>
                     <th>命中</th>
-                    <th>动作</th>
+                    <th>操作</th>
                     </tr>
                   </tbody>
                 </table>
@@ -55,7 +55,7 @@
                     <tr>
                     <th>域名</th>
                     <th>命中</th>
-                    <th>动作</th>
+                    <th>操作</th>
                     </tr>
                   </tbody>
                 </table>

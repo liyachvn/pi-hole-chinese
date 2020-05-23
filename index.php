@@ -126,7 +126,7 @@
     <div class="col-md-12 col-lg-6">
     <div class="box" id="query-types-pie">
         <div class="box-header with-border">
-          <h3 class="box-title">查询类型</h3>
+          <h3 class="box-title">查询记录类型</h3>
         </div>
         <div class="box-body">
           <div class="pull-left" style="width:50%">
@@ -177,7 +177,7 @@ else
     <div class="<?php echo $tablelayout; ?>">
       <div class="box" id="domain-frequency">
         <div class="box-header with-border">
-          <h3 class="box-title">活跃允许域名</h3>
+          <h3 class="box-title">活跃放行域名</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -242,7 +242,7 @@ else
                   <tbody>
                     <tr>
                     <th>客户端</th>
-                    <th>请求</th>
+                    <th>请求数</th>
                     <th>频率</th>
                     </tr>
                   </tbody>
@@ -270,7 +270,7 @@ else
                   <tbody>
                     <tr>
                     <th>客户端</th>
-                    <th>请求</th>
+                    <th>请求数</th>
                     <th>频率</th>
                     </tr>
                   </tbody>

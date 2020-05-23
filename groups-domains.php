@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="new_domain_comment">注解：</label>
+                                    <label for="new_domain_comment">注释：</label>
                                     <input id="new_domain_comment" type="text" class="form-control" placeholder="描述（可选项）">
                                 </div>
                             </div>
@@ -71,13 +71,11 @@
                                         <input id="new_regex" type="text" class="form-control active" placeholder="要添加的正则表达式">
                                     </div>
                                     <div class="form-group">
-                                        <strong>示意：</strong>需要帮助以编写正确的正则表达式规则吗？请参阅我们的在线
-                                        <a href="https://docs.pi-hole.net/ftldns/regex/tutorial" rel="noopener" target="_blank">
-                                            正则表达式教程</a>。
+                                        <strong>提示：</strong>如果需要了解正确编写正则表达式的规则，请参阅我们提供的在线<a href="https://docs.pi-hole.net/ftldns/regex/tutorial" rel="noopener" target="_blank">正则表达式教程</a>。
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                        <label for="new_regex_comment">注解：</label>
+                                        <label for="new_regex_comment">注释：</label>
                                         <input id="new_regex_comment" type="text" class="form-control" placeholder="描述（可选项）">
                                 </div>
                             </div>
@@ -120,7 +118,7 @@
                         <th>域/正则表达式</th>
                         <th>类型</th>
                         <th>状态</th>
-                        <th>注解</th>
+                        <th>注释</th>
                         <th>群组分配</th>
                         <th>操作</th>
                     </tr>

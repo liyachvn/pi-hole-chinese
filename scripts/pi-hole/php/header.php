@@ -395,7 +395,7 @@ if($auth) {
                     ?>
                     <br/>
                     <?php
-                    echo "<a title=\"Detected $nproc cores\"><i class=\"fa fa-circle ";
+                    echo "<a title=\"检测到 $nproc 个核心\"><i class=\"fa fa-circle ";
                         if ($loaddata[0] > $nproc) {
                             echo "text-red";
                         }
@@ -421,7 +421,7 @@ if($auth) {
                         }
                         else
                         {
-                            echo "\"></i> 内存使用：&nbsp;&nbsp; N/A</a>";
+                            echo "\"></i> 内存使用：&nbsp;&nbsp; 无数据</a>";
                         }
                     ?>
                 </div>
@@ -449,7 +449,7 @@ if($auth) {
                 <!-- Home Page -->
                 <li<?php if($scriptname === "index.php"){ ?> class="active"<?php } ?>>
                     <a href="index.php">
-                        <i class="fa fa-home"></i> <span>仪表板</span>
+                        <i class="fa fa-home"></i> <span>仪表盘</span>
                     </a>
                 </li>
                 <?php if($auth){ ?>
@@ -469,7 +469,7 @@ if($auth) {
                   <ul class="treeview-menu">
                     <li<?php if($scriptname === "db_graph.php"){ ?> class="active"<?php } ?>>
                         <a href="db_graph.php">
-                            <i class="fa fa-file-alt"></i> <span>图形</span>
+                            <i class="fa fa-file-alt"></i> <span>图形统计</span>
                         </a>
                     </li>
                     <li<?php if($scriptname === "db_queries.php"){ ?> class="active"<?php } ?>>
@@ -517,7 +517,7 @@ if($auth) {
                     </li>
                     <li<?php if($scriptname === "groups-domains.php"){ ?> class="active"<?php } ?>>
                         <a href="groups-domains.php">
-                            <i class="fa fa-list"></i> <span>域名</span>
+                            <i class="fa fa-list"></i> <span>域管理</span>
                         </a>
                     </li>
                     <li<?php if($scriptname === "groups-adlists.php"){ ?> class="active"<?php } ?>>

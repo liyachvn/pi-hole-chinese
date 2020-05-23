@@ -9,7 +9,7 @@
 ?>
 <!-- Title -->
 <div class="page-header">
-    <h1>在列表中查找已阻止的域</h1>
+    <h1>查询列表</h1>
 </div>
 <!-- Domain Input -->
 <div class="form-group input-group">

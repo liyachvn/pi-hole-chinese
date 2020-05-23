@@ -19,7 +19,7 @@ $token = $_SESSION['token'];
 
 <!-- Title -->
 <div class="page-header">
-    <h1>指定要从 Pi-hole 查询数据库中查询的日期范围</h1>
+    <h1>查询日志</h1>
 </div>
 
 
@@ -84,7 +84,7 @@ $token = $_SESSION['token'];
 </div>
 
 <div id="timeoutWarning" class="alert alert-warning alert-dismissible fade in" role="alert" hidden="true">
-    当您指定范围为多大时，Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
+    如果您指定范围过大，当 Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
 </div>
 
 <!-- Small boxes (Stat box) -->
@@ -107,7 +107,7 @@ $token = $_SESSION['token'];
         <div class="small-box bg-aqua">
             <div class="inner">
                 <h3 class="statistic" id="ads_wildcard_blocked">---</h3>
-                <p>查询被阻止 (通配符)</p>
+                <p>查询被阻止（通配符）</p>
             </div>
             <div class="icon">
                 <i class="fas fa-hand-paper"></i>
@@ -133,7 +133,7 @@ $token = $_SESSION['token'];
         <div class="small-box bg-yellow">
             <div class="inner">
                 <h3 class="statistic" id="ads_percentage_today">---</h3>
-                <p>查询被阻止</p>
+                <p>查询阻止率</p>
             </div>
             <div class="icon">
                 <i class="fas fa-chart-pie"></i>

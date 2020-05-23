@@ -9,7 +9,7 @@
 ?>
 <!-- Title -->
 <div class="page-header">
-    <h1>更新规则 (阻止域名列表)</h1>
+    <h1>更新规则（阻止的域名列表）</h1>
 </div>
 
 <!-- Alerts -->

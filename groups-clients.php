@@ -10,7 +10,7 @@
 
 <!-- Title -->
 <div class="page-header">
-    <h1>客户端群组管理</h1>
+    <h1>客户端</h1>
 </div>
 
 <!-- Domain Input -->
@@ -31,10 +31,10 @@
                         <select id="select" class="form-control" placeholder="">
                             <option disabled selected>正在加载……</option>
                         </select><br>
-                        <input id="ip-custom" type="text" class="form-control" disabled placeholder="客户端 IP 地址（IPv4 或 IPv6，CIDR 子网可用，可选项）">
+                        <input id="ip-custom" type="text" class="form-control" disabled placeholder="客户端 IP 地址（IPv4 或 IPv6、CIDR 子网可用，可选项）">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="new_comment">注解：</label>
+                        <label for="new_comment">注释：</label>
                         <input id="new_comment" type="text" class="form-control" placeholder="客户端描述（可选项）">
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <tr>
                         <th>ID</th>
                         <th>IP 地址</th>
-                        <th>注解</th>
+                        <th>注释</th>
                         <th>群组分配</th>
                         <th>操作</th>
                     </tr>

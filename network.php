@@ -20,7 +20,7 @@ $token = $_SESSION['token'];
     <div class="col-md-12">
       <div class="box" id="network-details">
         <div class="box-header with-border">
-          <h3 class="box-title">网络概况</h3>
+          <h3 class="box-title">网络</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -50,7 +50,7 @@ $token = $_SESSION['token'];
                     </tr>
                 </tfoot>
             </table>
-            <label>背景色：最近看到的来自此设备的查询……</label>
+            <label>使用以下背景色区分最后来自相应设备的查询时间：</label>
         <table width="100%">
           <tr class="text-center">
             <td style="background: #e7ffde;" width="15%">刚刚</td>

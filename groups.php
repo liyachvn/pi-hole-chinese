@@ -10,7 +10,7 @@
 
 <!-- Title -->
 <div class="page-header">
-    <h1>群组管理</h1>
+    <h1>群组</h1>
 </div>
 
 <!-- Group Input -->
@@ -31,7 +31,7 @@
                         <input id="new_name" type="text" class="form-control" placeholder="群组名称">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="new_desc">描述：</label>
+                        <label for="new_desc">注释：</label>
                         <input id="new_desc" type="text" class="form-control" placeholder="群组描述（可选项）">
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <th>ID</th>
                         <th>名称</th>
                         <th>状态</th>
-                        <th>描述</th>
+                        <th>注释</th>
                         <th>操作</th>
                     </tr>
                     </thead>

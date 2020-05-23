@@ -22,7 +22,7 @@ else
 $last_error = error_get_last();
 if($last_error["type"] === E_WARNING || $last_error["type"] === E_ERROR)
 {
-	$error .= "There was a problem applying your settings.<br>Debugging information:<br>PHP error (".htmlspecialchars($last_error["type"])."): ".htmlspecialchars($last_error["message"])." in ".htmlspecialchars($last_error["file"]).":".htmlspecialchars($last_error["line"]);
+	$error .= "应用设置时发生了一个错误。<br>调试信息：<br>PHP 错误 (".htmlspecialchars($last_error["type"])."): ".htmlspecialchars($last_error["message"])." in ".htmlspecialchars($last_error["file"]).":".htmlspecialchars($last_error["line"]);
 }
 
 ?>
@@ -44,27 +44,27 @@ if (isset($_POST["submit"])) {
 
 <?php if (isset($debug)) { ?>
     <div id="alDebug" class="alert alert-warning alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+        <button type="button" class="close" data-hide="alert" aria-label="关闭"><span aria-hidden="true">&times;</span>
         </button>
-        <h4><i class="icon fa fa-exclamation-triangle"></i> Debug</h4>
+        <h4><i class="icon fa fa-exclamation-triangle"></i> 调试</h4>
         <pre><?php print_r($_POST); ?></pre>
     </div>
 <?php } ?>
 
 <?php if (strlen($success) > 0) { ?>
     <div id="alInfo" class="alert alert-info alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+        <button type="button" class="close" data-hide="alert" aria-label="关闭"><span aria-hidden="true">&times;</span>
         </button>
-        <h4><i class="icon fa fa-info"></i> Info</h4>
+        <h4><i class="icon fa fa-info"></i> 信息</h4>
         <?php echo $success; ?>
     </div>
 <?php } ?>
 
 <?php if (strlen($error) > 0) { ?>
     <div id="alError" class="alert alert-danger alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+        <button type="button" class="close" data-hide="alert" aria-label="关闭"><span aria-hidden="true">&times;</span>
         </button>
-        <h4><i class="icon fa fa-ban"></i> Error</h4>
+        <h4><i class="icon fa fa-ban"></i> 错误</h4>
         <?php echo $error; ?>
     </div>
 <?php } ?>
@@ -253,7 +253,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                         <h3 class="box-title">阻止列表用来生成 Pi-hole 的规则</h3>
                                     </div>
                                     <div class="box-body">
-                                        <p>请转到<a href="groups-adlists.php">群组管理页面</a>编辑 Pi-hole 使用的阻止列表。</p>
+                                        <p>请转到<a href="groups-adlists.php">群组管理</a>页面编辑 Pi-hole 使用的阻止列表。</p>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <div class="input-group-addon">从</div>
+                                                        <div class="input-group-addon">起始</div>
                                                         <input type="text" class="form-control DHCPgroup" name="from"
                                                                value="<?php echo $DHCPstart; ?>"
                                                                <?php if (!$DHCP){ ?>disabled<?php } ?>>
@@ -370,7 +370,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <div class="input-group-addon">到</div>
+                                                        <div class="input-group-addon">终止</div>
                                                         <input type="text" class="form-control DHCPgroup" name="to"
                                                                value="<?php echo $DHCPend; ?>"
                                                                <?php if (!$DHCP){ ?>disabled<?php } ?>>
@@ -540,7 +540,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                                     <tbody>
                                                         <?php foreach ($dhcp_leases as $lease) { ?>
                                                         <tr data-placement="auto" data-container="body" data-toggle="tooltip"
-                                                            title="Lease type: IPv<?php echo $lease["type"]; ?><br/>Remaining lease time: <?php echo $lease["TIME"]; ?><br/>DHCP UID: <?php echo $lease["clid"]; ?>">
+                                                            title="租约类型：IPv<?php echo $lease["type"]; ?><br/>剩余租约时间：<?php echo $lease["TIME"]; ?><br/>DHCP UID: <?php echo $lease["clid"]; ?>">
                                                             <td id="MAC"><?php echo $lease["hwaddr"]; ?></td>
                                                             <td id="IP" data-order="<?php echo bin2hex(inet_pton($lease["IP"])); ?>"><?php echo $lease["IP"]; ?></td>
                                                             <td id="HOST"><?php echo $lease["host"]; ?></td>
@@ -603,7 +603,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                 </div>
                                 <input type="hidden" name="field" value="DHCP">
                                 <input type="hidden" name="token" value="<?php echo $token ?>">
-                                <button type="submit" class="btn btn-primary pull-right">Save</button>
+                                <button type="submit" class="btn btn-primary pull-right">保存</button>
                             </div>
                         </div>
                     </form>
@@ -874,7 +874,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                                                 <div class="form-group">
                                                     <label>活跃域/活跃广告商</label>
-                                                    <textarea name="domains" class="form-control" placeholder="Enter one domain per line"
+                                                    <textarea name="domains" class="form-control" placeholder="每行只输入一个域名。"
                                                               rows="4"><?php foreach ($excludedDomains as $domain) {
                                                                              echo $domain . "\n"; }
                                                                        ?></textarea>
@@ -883,7 +883,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                                                 <div class="form-group">
                                                     <label>活跃客户端</label>
-                                                    <textarea name="clients" class="form-control" placeholder="Enter one IP address or host name per line"
+                                                    <textarea name="clients" class="form-control" placeholder="每行只输入一个 IP 地址或主机名称。"
                                                               rows="4"><?php foreach ($excludedClients as $client) {
                                                                              echo $client . "\n"; }
                                                                        ?></textarea>
@@ -931,7 +931,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                                     <div class="checkbox">
                                                         <label><input type="checkbox" name="boxedlayout" value="yes"
                                                                       <?php if ($boxedlayout){ ?>checked<?php }
-                                                                      ?>>使用磁贴式式布局（在大尺寸屏幕上效果更好）</label>
+                                                                      ?>>使用磁贴式布局（在大尺寸屏幕上效果更好）</label>
                                                     </div>
                                                 </div>
                                                 <h4>CPU 温度单位</h4>
@@ -1047,7 +1047,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                             <div class="col-lg-6 col-md-12">
                                 <div class="box box-warning">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">传送器导出</h3>
+                                        <h3 class="box-title">导出</h3>
                                     </div>
                                     <div class="box-body">
                                         <div class="row">
@@ -1062,7 +1062,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                             <div class="col-lg-6 col-md-12">
                                 <div class="box box-warning">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">传送器导入</h3>
+                                        <h3 class="box-title">导入</h3>
                                     </div>
                                     <div class="box-body">
                                         <div class="row">
@@ -1130,7 +1130,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                         <div class="col-lg-12">
                             <div class="box box-warning">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">传送器</h3>
+                                    <h3 class="box-title">导入 / 导出</h3>
                                 </div>
                                 <div class="box-body">
                                     <p>PHP 扩展模块“ <code>Phar</code> ”没有加载。请确认您已经安装并加载了该模块。</p>
@@ -1213,11 +1213,11 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                                         <td><?php print_r(get_FTL_data("euser")); ?> / <?php print_r(get_FTL_data("egroup")); ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row">CPU 总利用率：</th>
+                                                        <th scope="row">CPU 总占用率：</th>
                                                         <td><?php print_r(get_FTL_data("%cpu")); ?>%</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row">内存利用率：</th>
+                                                        <th scope="row">内存占用率：</th>
                                                         <td><?php print_r(get_FTL_data("%mem")); ?>%</td>
                                                     </tr>
                                                     <tr>
@@ -1240,7 +1240,7 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin", "blocklists"
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">
-                                                            <span title="尽管尚未过期但必须清除的高速缓存条目数（增加高速缓存大小可减少此数量）">DNS 缓存收回</span>
+                                                            <span title="尽管尚未过期但必须清除的高速缓存条目数（增加高速缓存大小可减少此数量）">DNS 缓存回收</span>
                                                         </th>
                                                         <td id="cache-live-freed">&nbsp;</td>
                                                     </tr>

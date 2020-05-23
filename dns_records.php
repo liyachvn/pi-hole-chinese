@@ -12,7 +12,7 @@
 <!-- Title -->
 <div class="page-header">
     <h1>本地 DNS 记录</h1>
-    <small>在本页面中，您可以添加域名/IP 地址的关联。</small>
+    <small>在本页面中，您可以添加域名/IP 地址的映射。</small>
 </div>
 
 <!-- Domain Input -->
@@ -22,7 +22,7 @@
             <!-- /.box-header -->
             <div class="box-header with-border">
                 <h3 class="box-title">
-                    添加一个新的域名/IP 地址组合
+                    添加一个新的域名 / IP 地址组合
                 </h3>
             </div>
             <!-- /.box-header -->
@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="ip">IP 地址：</label>
-                        <input id="ip" type="text" class="form-control" placeholder="相关 IP 地址">
+                        <input id="ip" type="text" class="form-control" placeholder="关联 IP 地址">
                     </div>
                 </div>
             </div>
@@ -48,26 +48,26 @@
 <!-- Alerts -->
 <div id="alInfo" class="alert alert-info alert-dismissible fade in" role="alert" hidden="true">
     <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Updating the custom DNS entries...
+    更新自定义 DNS 值……
 </div>
 <div id="alSuccess" class="alert alert-success alert-dismissible fade in" role="alert" hidden="true">
     <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Success! The list will refresh.
+    操作成功！列表将被刷新。
 </div>
 <div id="alFailure" class="alert alert-danger alert-dismissible fade in" role="alert" hidden="true">
     <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Failure! Something went wrong, see output below:<br/><br/><pre><span id="err"></span></pre>
+    操作失败！发生错误，请参见以下输出信息：<br/><br/><pre><span id="err"></span></pre>
 </div>
 <div id="alWarning" class="alert alert-warning alert-dismissible fade in" role="alert" hidden="true">
     <button type="button" class="close" data-hide="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    At least one domain was already present, see output below:<br/><br/><pre><span id="warn"></span></pre>
+    至少有一个域已经存在，请参见以下输出信息：<br/><br/><pre><span id="warn"></span></pre>
 </div>
 <div class="row">
     <div class="col-md-12">
         <div class="box" id="recent-queries">
             <div class="box-header with-border">
                 <h3 class="box-title">
-                    List of local DNS domains
+                    本地 DNS 列表
                 </h3>
             </div>
             <!-- /.box-header -->
@@ -75,13 +75,13 @@
                 <table id="customDNSTable" class="display table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Domain</th>
-                        <th>IP</th>
-                        <th>Action</th>
+                        <th>域名</th>
+                        <th>IP 地址</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                 </table>
-                <button type="button" id="resetButton" hidden="true">Clear Filters</button>
+                <button type="button" id="resetButton" hidden="true">清除过滤器</button>
             </div>
             <!-- /.box-body -->
         </div>

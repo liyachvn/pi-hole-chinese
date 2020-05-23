@@ -10,7 +10,7 @@
 
 <!-- Title -->
 <div class="page-header">
-    <h1>广告列表群组管理</h1>
+    <h1>广告列表</h1>
 </div>
 
 <!-- Domain Input -->
@@ -31,7 +31,7 @@
                         <input id="new_address" type="text" class="form-control" placeholder="http://..., https://..., file://...">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="new_comment">注解：</label>
+                        <label for="new_comment">注释：</label>
                         <input id="new_comment" type="text" class="form-control" placeholder="广告列表描述（可选项）">
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <th>ID</th>
                         <th>地址</th>
                         <th>状态</th>
-                        <th>注解</th>
+                        <th>注释</th>
                         <th>群组分配</th>
                         <th>操作</th>
                     </tr>

@@ -13,7 +13,7 @@
 </div>
 
 <p><input type="checkbox" id="upload"> 上传调试日志并在完成后提供令牌</p>
-<p>单击此按钮后，如果我们检测到 Internet 连接正常，将生成调试日志并自动上传。</p>
+<p>单击此按钮后，如果 Internet 连接正常，系统将生成调试日志并自动上传。</p>
 <button class="btn btn-lg btn-primary btn-block" id="debugBtn">生成调试日志</button>
 <pre id="output" style="width: 100%; height: 100%;" hidden="true"></pre>
 

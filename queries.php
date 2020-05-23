@@ -31,7 +31,7 @@ if(isset($setupVars["API_QUERY_LOG_SHOW"]))
 	}
 	elseif($setupVars["API_QUERY_LOG_SHOW"] === "nothing")
 	{
-		$showing = "showing no queries (due to setting)";
+		$showing = "不显示查询(由于相关设置）";
 	}
 }
 else
@@ -48,15 +48,15 @@ if(isset($_GET["all"]))
 }
 else if(isset($_GET["client"]))
 {
-	$showing .= " queries for client ".htmlentities($_GET["client"]);
+	$showing .= " 来自客户端 ".htmlentities($_GET["client"]);
 }
 else if(isset($_GET["domain"]))
 {
-	$showing .= " queries for domain ".htmlentities($_GET["domain"]);
+	$showing .= " 查询以下域 ".htmlentities($_GET["domain"]);
 }
 else if(isset($_GET["from"]) || isset($_GET["until"]))
 {
-	$showing .= " queries within specified time interval";
+	$showing .= " 指定时间段查询";
 }
 else
 {
@@ -87,7 +87,7 @@ if(strlen($showing) > 0)
 <!--
 <div class="row">
     <div class="col-md-12">
-        <button class="btn btn-info margin-bottom pull-right">Refresh Data</button>
+        <button class="btn btn-info margin-bottom pull-right">刷新数据</button>
     </div>
 </div>
 -->

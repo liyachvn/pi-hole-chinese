@@ -19,7 +19,7 @@ $token = $_SESSION['token'];
 
 <!-- Title -->
 <div class="page-header">
-    <h1>Pi-hole 查询数据库计算图形统计信息</h1>
+    <h1>图形统计</h1>
 </div>
 
 <div class="row">
@@ -27,7 +27,6 @@ $token = $_SESSION['token'];
 <!-- Date Input -->
       <div class="form-group">
         <label>日期和时间范围：</label>
-
         <div class="input-group">
           <div class="input-group-addon">
             <i class="far fa-clock"></i>
@@ -40,7 +39,7 @@ $token = $_SESSION['token'];
 </div>
 
 <div id="timeoutWarning" class="alert alert-warning alert-dismissible fade in" role="alert" hidden="true">
-    当您指定范围为多大时，Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
+    如果您指定范围过大，当 Pi-hole 尝试检索所有数据时，请求可能会超时。<br/><span id="err"></span>
 </div>
 
 <div class="row">
