@@ -21,7 +21,7 @@ var interval = 0;
 
 var timeoutWarning = $("#timeoutWarning");
 
-var dateformat = "MMMM Do YYYY, HH:mm";
+var dateformat = "YYYY-MM-DD, HH:mm";
 
 $(function() {
   $("#querytime").daterangepicker(
@@ -32,8 +32,8 @@ $(function() {
       startDate: start__,
       endDate: end__,
       ranges: {
-        Today: [moment().startOf("day"), moment()],
-        Yesterday: [
+        "今天": [moment().startOf("day"), moment()],
+        "昨天": [
           moment()
             .subtract(1, "days")
             .startOf("day"),
@@ -41,10 +41,10 @@ $(function() {
             .subtract(1, "days")
             .endOf("day")
         ],
-        "Last 7 Days": [moment().subtract(6, "days"), moment()],
-        "Last 30 Days": [moment().subtract(29, "days"), moment()],
-        "This Month": [moment().startOf("month"), moment()],
-        "Last Month": [
+        "最近 7 天": [moment().subtract(6, "days"), moment()],
+        "最近 30 天": [moment().subtract(29, "days"), moment()],
+        "本月": [moment().startOf("month"), moment()],
+        "上月": [
           moment()
             .subtract(1, "month")
             .startOf("month"),
@@ -52,8 +52,8 @@ $(function() {
             .subtract(1, "month")
             .endOf("month")
         ],
-        "This Year": [moment().startOf("year"), moment()],
-        "All Time": [moment(0), moment()]
+        "今年": [moment().startOf("year"), moment()],
+        "全部时间": [moment(0), moment()]
       },
       opens: "center",
       showDropdowns: true,
@@ -198,7 +198,7 @@ $(document).ready(function() {
       labels: [],
       datasets: [
         {
-          label: "Blocked DNS Queries",
+          label: "已阻止的 DNS 查询",
           fill: true,
           backgroundColor: blockedColor,
           borderColor: blockedColor,
@@ -209,7 +209,7 @@ $(document).ready(function() {
           pointHitRadius: 5
         },
         {
-          label: "Permitted DNS Queries",
+          label: "已放行的 DNS 查询",
           fill: true,
           backgroundColor: permittedColor,
           borderColor: permittedColor,
@@ -265,7 +265,7 @@ $(document).ready(function() {
                 until_time += "\n";
               }
 
-              return ("Queries from " + from_time + " to " + until_time + " on " + from_date).split(
+              return (from_date + " " + from_time + " 到 " + until_time + " 间的查询").split(
                 "\n "
               );
             }
@@ -277,14 +277,15 @@ $(document).ready(function() {
             }
 
             return (
-              "Queries from " +
+              "从 " +
               from_date +
               " " +
               from_time +
-              " to " +
+              " 到 " +
               until_date +
               " " +
-              until_time
+              until_time +
+              " 间的查询"
             ).split("\n ");
           },
           label: function(tooltipItems, data) {

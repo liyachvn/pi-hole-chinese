@@ -95,11 +95,11 @@ function add(domain, list) {
 
 function handleAjaxError(xhr, textStatus) {
   if (textStatus === "timeout") {
-    alert("The server took too long to send the data.");
+    alert("服务器发送数据时间过长。");
   } else if (xhr.responseText.indexOf("Connection refused") >= 0) {
-    alert("An error occured while loading the data: Connection refused. Is FTL running?");
+    alert("加载数据时发生错误：连接被拒绝。请确认 FTL 已经运行。");
   } else {
-    alert("An unknown error occured while loading the data.\n" + xhr.responseText);
+    alert("加载数据时发生未知错误。\n" + xhr.responseText);
   }
 
   $("#all-queries_processing").hide();
@@ -177,94 +177,94 @@ $(document).ready(function() {
         case "1":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked (gravity)";
+          fieldtext = "已阻止（规则）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case "2":
           blocked = false;
           colorClass = "text-green";
-          fieldtext = "OK <br class='hidden-lg'>(forwarded)" + dnssec_status;
+          fieldtext = "OK <br class='hidden-lg'>（已转发）" + dnssec_status;
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> Blacklist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> 黑名单</button>';
           break;
         case "3":
           blocked = false;
           colorClass = "text-green";
-          fieldtext = "OK <br class='hidden-lg'>(cached)" + dnssec_status;
+          fieldtext = "OK <br class='hidden-lg'>（已缓存）" + dnssec_status;
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> Blacklist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> 黑名单</button>';
           break;
         case "4":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(regex blacklist)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（正则表达式黑名单）";
 
           if (data.length > 9 && data[9] > 0) {
             regexLink = true;
           }
 
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case "5":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(exact blacklist)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（确切黑名单）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case "6":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, IP)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（外部，IP）";
           buttontext = "";
           break;
         case "7":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, NULL)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（外部，NULL）";
           buttontext = "";
           break;
         case "8":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, NXRA)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（外部，NXRA）";
           buttontext = "";
           break;
         case "9":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked (gravity, CNAME)";
+          fieldtext = "已阻止（规则，CNAME）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           isCNAME = true;
           break;
         case "10":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(regex blacklist, CNAME)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（正则表达式黑名单，CNAME）";
 
           if (data.length > 9 && data[9] > 0) {
             regexLink = true;
           }
 
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 黑名单</button>';
           isCNAME = true;
           break;
         case "11":
           blocked = true;
           colorClass = "text-red";
-          fieldtext = "Blocked <br class='hidden-lg'>(exact blacklist, CNAME)";
+          fieldtext = "已阻止 <br class='hidden-lg'>（确切黑名单，CNAME）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           isCNAME = true;
           break;
         default:
           blocked = false;
           colorClass = "text-black";
-          fieldtext = "Unknown (" + parseInt(data[4]) + ")";
+          fieldtext = "未知 （" + parseInt(data[4]) + "）";
           buttontext = "";
       }
 
@@ -275,7 +275,7 @@ $(document).ready(function() {
       if (regexLink) {
         $("td:eq(4)", row).hover(
           function() {
-            this.title = "Click to show matching regex filter";
+            this.title = "点击以显示匹配的正则表达式过滤器";
             this.style.color = "#72afd2";
           },
           function() {
@@ -442,7 +442,7 @@ $(document).ready(function() {
       api.$("td:eq(1)").hover(
         function() {
           if (autofilter()) {
-            this.title = "Click to show only " + this.textContent + " queries";
+            this.title = "点击显示记录类型为 " + this.textContent + " 的查询";
             this.style.color = "#72afd2";
           } else {
             this.title = "";
@@ -466,7 +466,7 @@ $(document).ready(function() {
         function() {
           if (autofilter()) {
             var domain = this.textContent.split("\n")[0];
-            this.title = "Click to show only queries with domain " + domain;
+            this.title = "点击显示包含域 " + domain + " 的查询";
             this.style.color = "#72afd2";
           } else {
             this.title = "";
@@ -488,7 +488,7 @@ $(document).ready(function() {
       api.$("td:eq(3)").hover(
         function() {
           if (autofilter()) {
-            this.title = "Click to show only queries made by " + this.textContent;
+            this.title = "点击显示来自 " + this.textContent + " 的查询";
             this.style.color = "#72afd2";
           } else {
             this.title = "";

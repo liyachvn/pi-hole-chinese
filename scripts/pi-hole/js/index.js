@@ -97,7 +97,7 @@ var customTooltips = function(tooltip) {
       }
     });
     if (printed < 1) {
-      innerHtml += "<tr><td>No activity recorded</td></tr>";
+      innerHtml += "<tr><td>没有活动的记录</td></tr>";
     }
 
     innerHtml += "</tbody>";
@@ -847,7 +847,7 @@ $(document).ready(function() {
       labels: [],
       datasets: [
         {
-          label: "Blocked DNS Queries",
+          label: "允许的 DNS 查询",
           fill: true,
           backgroundColor: blockedColor,
           borderColor: blockedColor,
@@ -858,7 +858,7 @@ $(document).ready(function() {
           pointHitRadius: 5
         },
         {
-          label: "Permitted DNS Queries",
+          label: "阻止的 DNS 查询",
           fill: true,
           backgroundColor: permittedColor,
           borderColor: permittedColor,
@@ -885,7 +885,7 @@ $(document).ready(function() {
             var m = parseInt(time[2], 10) || 0;
             var from = padNumber(h) + ":" + padNumber(m - 5) + ":00";
             var to = padNumber(h) + ":" + padNumber(m + 4) + ":59";
-            return "Queries from " + from + " to " + to;
+            return "从 " + from + " 到 " + to + " 的查询";
           },
           label: function(tooltipItems, data) {
             if (tooltipItems.datasetIndex === 0) {
@@ -972,7 +972,7 @@ $(document).ready(function() {
               var m = parseInt(time[2], 10) || 0;
               var from = padNumber(h) + ":" + padNumber(m - 5) + ":00";
               var to = padNumber(h) + ":" + padNumber(m + 4) + ":59";
-              return "Client activity from " + from + " to " + to;
+              return "从 " + from + " 到 " + to + " 活跃的客户端";
             },
             label: function(tooltipItems, data) {
               return data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
@@ -1061,7 +1061,7 @@ $(document).ready(function() {
           custom: customTooltips,
           callbacks: {
             title: function() {
-              return "Query types";
+              return "查询类型";
             },
             label: function(tooltipItems, data) {
               var dataset = data.datasets[tooltipItems.datasetIndex];
@@ -1098,7 +1098,7 @@ $(document).ready(function() {
           custom: customTooltips,
           callbacks: {
             title: function() {
-              return "Forward destinations";
+              return "转发目标";
             },
             label: function(tooltipItems, data) {
               var dataset = data.datasets[tooltipItems.datasetIndex];
