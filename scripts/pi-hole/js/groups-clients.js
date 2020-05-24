@@ -39,7 +39,7 @@ function reload_client_suggestions() {
       sel.append(
         $("<option />")
           .val("custom")
-          .text("Custom, specified below...")
+          .text("自定义，在下方输入……")
       );
       if (customWasSelected) {
         sel.val("custom");
@@ -97,11 +97,11 @@ function initTable() {
     rowCallback: function(row, data) {
       $(row).attr("data-id", data.id);
       var tooltip =
-        "Added: " +
+        "已添加：" +
         utils.datetime(data.date_added) +
-        "\nLast modified: " +
+        "\n上次修改：" +
         utils.datetime(data.date_modified) +
-        "\nDatabase ID: " +
+        "\n数据库 ID: " +
         data.id;
       var ip_name =
         '<code id="ip_' +
@@ -192,7 +192,7 @@ function initTable() {
         .prepend(
           '<button type="button" id=btn_apply_' +
             data.id +
-            ' class="btn btn-block btn-sm" disabled>Apply</button>'
+            ' class="btn btn-block btn-sm" disabled>应用</button>'
         );
 
       var ApplyBtn = "#btn_apply_" + data.id;
@@ -260,11 +260,11 @@ function addClient() {
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Adding client...", ip);
+  utils.showAlert("信息", "", "正在添加客户端……", ip);
 
   if (ip.length === 0) {
     utils.enableAll();
-    utils.showAlert("warning", "", "Warning", "Please specify a client IP address");
+    utils.showAlert("警告", "", "警告", "请指定一个客户端 IP 地址");
     return;
   }
 
@@ -273,13 +273,13 @@ function addClient() {
 
   if (!ipv6format && !utils.validateIPv4CIDR(ip)) {
     utils.enableAll();
-    utils.showAlert("warning", "", "Warning", "Invalid IPv4 address!");
+    utils.showAlert("警告", "", "警告", "无效的 IPv4 地址！");
     return;
   }
 
   if (ipv6format && !utils.validateIPv6CIDR(ip)) {
     utils.enableAll();
-    utils.showAlert("warning", "", "Warning", "Invalid IPv6 address!");
+    utils.showAlert("警告", "", "警告", "无效的 IPv6 地址！");
     return;
   }
 
@@ -291,16 +291,16 @@ function addClient() {
     success: function(response) {
       utils.enableAll();
       if (response.success) {
-        utils.showAlert("success", "glyphicon glyphicon-plus", "Successfully added client", ip);
+        utils.showAlert("成功", "glyphicon glyphicon-plus", "添加客户端成功", ip);
         reload_client_suggestions();
         table.ajax.reload(null, false);
       } else {
-        utils.showAlert("error", "", "Error while adding new client", response.message);
+        utils.showAlert("错误", "", "添加新的客户端时发生错误", response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while adding new client", jqXHR.responseText);
+      utils.showAlert("错误", "", "添加新的客户端时发生错误", jqXHR.responseText);
       console.log(exception);
     }
   });
@@ -327,7 +327,7 @@ function editClient() {
       not_done = "editing comment of";
       break;
     default:
-      alert("bad element or invalid data-id!");
+      alert("元素出错或无效数据 ID ！");
       return;
   }
 
@@ -337,7 +337,7 @@ function editClient() {
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Editing client...", ip_name);
+  utils.showAlert("信息", "", "编辑客户端……", ip_name);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -353,7 +353,7 @@ function editClient() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-pencil",
           "Successfully " + done + " client",
           ip_name
@@ -361,7 +361,7 @@ function editClient() {
         table.ajax.reload(null, false);
       } else {
         utils.showAlert(
-          "error",
+          "错误",
           "Error while " + not_done + " client with ID " + id,
           response.message
         );
@@ -370,7 +370,7 @@ function editClient() {
     error: function(jqXHR, exception) {
       utils.enableAll();
       utils.showAlert(
-        "error",
+        "错误",
         "",
         "Error while " + not_done + " client with ID " + id,
         jqXHR.responseText
@@ -392,7 +392,7 @@ function deleteClient() {
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Deleting client...", ip_name);
+  utils.showAlert("信息", "", "正在删除客户端……", ip_name);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -402,9 +402,9 @@ function deleteClient() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-trash",
-          "Successfully deleted client ",
+          "删除客户端成功",
           ip_name
         );
         table
@@ -414,12 +414,12 @@ function deleteClient() {
           .ajax.reload(null, false);
         reload_client_suggestions();
       } else {
-        utils.showAlert("error", "", "Error while deleting client with ID " + id, response.message);
+        utils.showAlert("错误", "", "删除客户端时发生错误。ID：" + id, response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while deleting client with ID " + id, jqXHR.responseText);
+      utils.showAlert("错误", "", "删除客户端时发生错误。ID：" + id, jqXHR.responseText);
       console.log(exception);
     }
   });

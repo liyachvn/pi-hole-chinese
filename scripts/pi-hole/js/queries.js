@@ -27,9 +27,9 @@ function add(domain, list) {
 
   var listtype;
   if (list === "white") {
-    listtype = "Whitelist";
+    listtype = "白名单";
   } else {
-    listtype = "Blacklist";
+    listtype = "黑名单";
   }
 
   alProcessing.children(alDomain).html(domain);

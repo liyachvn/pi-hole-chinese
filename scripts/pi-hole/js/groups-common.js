@@ -53,7 +53,7 @@ function showAlert(type, icon, title, message) {
       opts = {
         type: "danger",
         icon: "glyphicon glyphicon-remove",
-        title: "&nbsp;<strong>Error, something went wrong!</strong><br>",
+        title: "&nbsp;<strong>错误，发生了一些问题！</strong><br>",
         message: message
       };
       if (info) {
@@ -68,7 +68,7 @@ function showAlert(type, icon, title, message) {
 }
 
 function datetime(date) {
-  return moment.unix(Math.floor(date)).format("Y-MM-DD HH:mm:ss z");
+  return moment.unix(Math.floor(date)).format("YYYY-MM-DD HH:mm:ss z");
 }
 
 function disableAll() {
@@ -132,7 +132,7 @@ function validateIPv6CIDR(ip) {
 function bsSelect_defaults() {
   // set bootstrap-select defaults
   var pickerDEFAULTS = $.fn.selectpicker.Constructor.DEFAULTS;
-  pickerDEFAULTS.noneSelectedText = "none selected";
+  pickerDEFAULTS.noneSelectedText = "未选中";
   pickerDEFAULTS.selectedTextFormat = "count > 1";
   pickerDEFAULTS.actionsBox = true;
   pickerDEFAULTS.width = "fit";

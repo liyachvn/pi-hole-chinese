@@ -33,11 +33,11 @@ $(document).ready(function() {
     rowCallback: function(row, data) {
       $(row).attr("data-id", data.id);
       var tooltip =
-        "Added: " +
+        "已添加：" +
         utils.datetime(data.date_added) +
-        "\nLast modified: " +
+        "\n上次修改：" +
         utils.datetime(data.date_modified) +
-        "\nDatabase ID: " +
+        "\n数据库 ID: " +
         data.id;
       $("td:eq(0)", row).html(
         '<input id="name_' + data.id + '" title="' + tooltip + '" class="form-control">'
@@ -129,10 +129,10 @@ function addGroup() {
   var desc = $("#new_desc").val();
 
   utils.disableAll();
-  utils.showAlert("info", "", "Adding group...", name);
+  utils.showAlert("信息", "", "正在添加群组……", name);
 
   if (name.length === 0) {
-    utils.showAlert("warning", "", "Warning", "Please specify a group name");
+    utils.showAlert("警告", "", "警告", "请指定一个群组名称");
     return;
   }
 
@@ -144,17 +144,17 @@ function addGroup() {
     success: function(response) {
       utils.enableAll();
       if (response.success) {
-        utils.showAlert("success", "glyphicon glyphicon-plus", "Successfully added group", name);
+        utils.showAlert("成功", "glyphicon glyphicon-plus", "成功地添加了群组", name);
         $("#new_name").val("");
         $("#new_desc").val("");
         table.ajax.reload();
       } else {
-        utils.showAlert("error", "", "Error while adding new group", response.message);
+        utils.showAlert("错误", "", "添加新的群组时发生错误", response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while adding new group", jqXHR.responseText);
+      utils.showAlert("错误", "", "添加新的群组时发生错误", jqXHR.responseText);
       console.log(exception);
     }
   });
@@ -195,7 +195,7 @@ function editGroup() {
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Editing group...", name);
+  utils.showAlert("信息", "", "正在编辑群组……", name);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -212,14 +212,14 @@ function editGroup() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-pencil",
           "Successfully " + done + " group",
           name
         );
       } else {
         utils.showAlert(
-          "error",
+          "错误",
           "",
           "Error while " + not_done + " group with ID " + id,
           response.message
@@ -229,7 +229,7 @@ function editGroup() {
     error: function(jqXHR, exception) {
       utils.enableAll();
       utils.showAlert(
-        "error",
+        "错误",
         "",
         "Error while " + not_done + " group with ID " + id,
         jqXHR.responseText
@@ -245,7 +245,7 @@ function deleteGroup() {
   var name = tr.find("#name_" + id).val();
 
   utils.disableAll();
-  utils.showAlert("info", "", "Deleting group...", name);
+  utils.showAlert("信息", "", "正在删除群组……", name);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -255,9 +255,9 @@ function deleteGroup() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-trash",
-          "Successfully deleted group ",
+          "成功地删除了群组",
           name
         );
         table
@@ -265,12 +265,12 @@ function deleteGroup() {
           .remove()
           .draw(false);
       } else {
-        utils.showAlert("error", "", "Error while deleting group with ID " + id, response.message);
+        utils.showAlert("错误", "", "删除群组时发生错误。ID：" + id, response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while deleting group with ID " + id, jqXHR.responseText);
+      utils.showAlert("错误", "", "删除群组时发生错误。ID：" + id, jqXHR.responseText);
       console.log(exception);
     }
   });

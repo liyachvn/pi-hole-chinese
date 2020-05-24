@@ -16,11 +16,11 @@ var MAXIPDISPLAY = 3;
 
 function handleAjaxError(xhr, textStatus) {
   if (textStatus === "timeout") {
-    alert("The server took too long to send the data.");
+    alert("服务器发送数据时时间过长。");
   } else if (xhr.responseText.indexOf("Connection refused") >= 0) {
-    alert("An error occured while loading the data: Connection refused. Is FTL running?");
+    alert("加载数据时发生错误：连接被拒绝。请确认 FTL 已经运行。");
   } else {
-    alert("An unknown error occured while loading the data.\n" + xhr.responseText);
+    alert("加载数据时发生了一个未知错误。\n" + xhr.responseText);
   }
 
   $("#network-entries_processing").hide();
@@ -148,7 +148,7 @@ $(document).ready(function() {
         width: "8%",
         render: function(data, type) {
           if (type === "display") {
-            return moment.unix(data).format("Y-MM-DD [<br class='hidden-lg'>]HH:mm:ss z");
+            return moment.unix(data).format("YYYY-MM-DD [<br class='hidden-lg'>]HH:mm:ss z");
           }
 
           return data;
@@ -159,7 +159,7 @@ $(document).ready(function() {
         width: "8%",
         render: function(data, type) {
           if (type === "display") {
-            return moment.unix(data).format("Y-MM-DD [<br class='hidden-lg'>]HH:mm:ss z");
+            return moment.unix(data).format("YYYY-MM-DD [<br class='hidden-lg'>]HH:mm:ss z");
           }
 
           return data;

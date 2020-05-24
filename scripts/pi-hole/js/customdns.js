@@ -76,12 +76,12 @@ function addCustomDNS() {
     data: { action: "add", ip: ip, domain: domain },
     success: function(response) {
       if (response.success) {
-        showAlert("success");
+        showAlert("成功");
         table.ajax.reload();
-      } else showAlert("error", response.message);
+      } else showAlert("错误", response.message);
     },
     error: function() {
-      showAlert("error", "Error while adding this custom DNS entry");
+      showAlert("错误", "添加自定义 DNS 条目时发生错误");
     }
   });
 }
@@ -98,12 +98,12 @@ function deleteCustomDNS() {
     data: { action: "delete", domain: domain, ip: ip },
     success: function(response) {
       if (response.success) {
-        showAlert("success");
+        showAlert("成功");
         table.ajax.reload();
-      } else showAlert("error", response.message);
+      } else showAlert("错误", response.message);
     },
     error: function(jqXHR, exception) {
-      showAlert("error", "Error while deleting this custom DNS entry");
+      showAlert("错误", "删除 DNS 条目时发生错误");
       console.log(exception);
     }
   });

@@ -54,11 +54,11 @@ function initTable() {
     rowCallback: function(row, data) {
       $(row).attr("data-id", data.id);
       var tooltip =
-        "Added: " +
+        "已添加：" +
         utils.datetime(data.date_added) +
-        "\nLast modified: " +
+        "\n上次修改：" +
         utils.datetime(data.date_modified) +
-        "\nDatabase ID: " +
+        "\n数据库 ID: " +
         data.id;
       $("td:eq(0)", row).html(
         '<code id="address_' +
@@ -154,7 +154,7 @@ function initTable() {
         .prepend(
           '<button type="button" id=btn_apply_' +
             data.id +
-            ' class="btn btn-block btn-sm" disabled>Apply</button>'
+            ' class="btn btn-block btn-sm" disabled>应用</button>'
         );
 
       var ApplyBtn = "#btn_apply_" + data.id;
@@ -219,10 +219,10 @@ function addAdlist() {
   var comment = $("#new_comment").val();
 
   utils.disableAll();
-  utils.showAlert("info", "", "Adding adlist...", address);
+  utils.showAlert("信息", "", "正在添加广告列表……", address);
 
   if (address.length === 0) {
-    utils.showAlert("warning", "", "Warning", "Please specify an adlist address");
+    utils.showAlert("警告", "", "警告", "请指定一个广告列表地址");
     return;
   }
 
@@ -250,12 +250,12 @@ function addAdlist() {
         $("#new_comment").val("");
         table.ajax.reload();
       } else {
-        utils.showAlert("error", "", "Error while adding new adlist: ", response.message);
+        utils.showAlert("错误", "", "添加新的广告列表时发生错误：", response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while adding new adlist: ", jqXHR.responseText);
+      utils.showAlert("错误", "", "添加新的广告列表时发生错误：", jqXHR.responseText);
       console.log(exception);
     }
   });
@@ -292,12 +292,12 @@ function editAdlist() {
       not_done = "editing groups of";
       break;
     default:
-      alert("bad element or invalid data-id!");
+      alert("元素错误或无效的数据 ID ！");
       return;
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Editing adlist...", address);
+  utils.showAlert("信息", "", "编辑广告列表……", address);
 
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
@@ -315,15 +315,15 @@ function editAdlist() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-pencil",
-          "Successfully " + done + " adlist ",
+          "Successfully " + done + " adlist",
           address
         );
         table.ajax.reload(null, false);
       } else {
         utils.showAlert(
-          "error",
+          "错误",
           "",
           "Error while " + not_done + " adlist with ID " + id,
           Number(response.message)
@@ -333,7 +333,7 @@ function editAdlist() {
     error: function(jqXHR, exception) {
       utils.enableAll();
       utils.showAlert(
-        "error",
+        "错误",
         "",
         "Error while " + not_done + " adlist with ID " + id,
         jqXHR.responseText
@@ -349,7 +349,7 @@ function deleteAdlist() {
   var address = tr.find("#address_" + id).text();
 
   utils.disableAll();
-  utils.showAlert("info", "", "Deleting adlist...", address);
+  utils.showAlert("信息", "", "正在删除广告列表……", address);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -359,9 +359,9 @@ function deleteAdlist() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-trash",
-          "Successfully deleted adlist ",
+          "删除广告列表成功",
           address
         );
         table
@@ -370,12 +370,12 @@ function deleteAdlist() {
           .draw(false)
           .ajax.reload(null, false);
       } else {
-        utils.showAlert("error", "", "Error while deleting adlist with ID " + id, response.message);
+        utils.showAlert("错误", "", "删除广告列表时发生错误，ID：" + id, response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while deleting adlist with ID " + id, jqXHR.responseText);
+      utils.showAlert("错误", "", "删除广告列表时发生错误，ID：" + id, jqXHR.responseText);
       console.log(exception);
     }
   });

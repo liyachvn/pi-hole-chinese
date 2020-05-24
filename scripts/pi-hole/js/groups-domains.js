@@ -84,11 +84,11 @@ function initTable() {
     rowCallback: function(row, data) {
       $(row).attr("data-id", data.id);
       var tooltip =
-        "Added: " +
+        "已添加：" +
         utils.datetime(data.date_added) +
-        "\nLast modified: " +
+        "\n上次修改：" +
         utils.datetime(data.date_modified) +
-        "\nDatabase ID: " +
+        "\n数据库 ID: " +
         data.id;
       $("td:eq(0)", row).html(
         '<code id="domain_' +
@@ -105,10 +105,10 @@ function initTable() {
         whitelist_options =
           '<option value="0"' +
           (data.type === 0 ? " selected" : "") +
-          ">Exact whitelist</option>" +
+          ">确切白名单</option>" +
           '<option value="2"' +
           (data.type === 2 ? " selected" : "") +
-          ">Regex whitelist</option>";
+          ">正则表达式白名单</option>";
       }
 
       var blacklist_options = "";
@@ -116,10 +116,10 @@ function initTable() {
         blacklist_options =
           '<option value="1"' +
           (data.type === 1 ? " selected " : " ") +
-          ">Exact blacklist</option>" +
+          ">确切黑名单</option>" +
           '<option value="3"' +
           (data.type === 3 ? " selected" : "") +
-          ">Regex blacklist</option>";
+          ">正则表达式黑名单</option>";
       }
 
       $("td:eq(1)", row).html(
@@ -219,7 +219,7 @@ function initTable() {
           .prepend(
             '<button type="button" id=btn_apply_' +
               data.id +
-              ' class="btn btn-block btn-sm" disabled>Apply</button>'
+              ' class="btn btn-block btn-sm" disabled>应用</button>'
           );
       }
 
@@ -328,7 +328,7 @@ function addDomain() {
   var comment = commentEl.val();
 
   utils.disableAll();
-  utils.showAlert("info", "", "Adding " + domain_regex + "...", domain);
+  utils.showAlert("信息", "", "正在添加 " + domain_regex + "……", domain);
 
   if (domain.length > 0) {
     // strip "*." if specified by user in wildcard mode
@@ -352,7 +352,7 @@ function addDomain() {
     }
   } else {
     utils.enableAll();
-    utils.showAlert("warning", "", "Warning", "Please specify a " + domain_regex);
+    utils.showAlert("警告", "", "警告", "请指定一个 " + domain_regex);
     return;
   }
 
@@ -371,9 +371,9 @@ function addDomain() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-plus",
-          "Successfully added " + domain_regex,
+          "成功地添加了 " + domain_regex,
           domain
         );
         domainEl.val("");
@@ -381,12 +381,12 @@ function addDomain() {
         wildcardEl.prop("checked", false);
         table.ajax.reload(null, false);
       } else {
-        utils.showAlert("error", "", "Error while adding new " + domain_regex, response.message);
+        utils.showAlert("错误", "", "发生错误于添加新的 " + domain_regex, response.message);
       }
     },
     error: function(jqXHR, exception) {
       utils.enableAll();
-      utils.showAlert("error", "", "Error while adding new " + domain_regex, jqXHR.responseText);
+      utils.showAlert("错误", "", "发生错误于添加新的 " + domain_regex, jqXHR.responseText);
       console.log(exception);
     }
   });
@@ -443,12 +443,12 @@ function editDomain() {
       not_done = "editing groups of";
       break;
     default:
-      alert("bad element or invalid data-id!");
+      alert("元素出错或无效的数据 ID !");
       return;
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Editing " + domain_regex + "...", name);
+  utils.showAlert("信息", "", "正在编辑 " + domain_regex + "……", name);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -466,7 +466,7 @@ function editDomain() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-pencil",
           "Successfully " + done + " " + domain_regex,
           domain
@@ -474,7 +474,7 @@ function editDomain() {
         table.ajax.reload(null, false);
       } else
         utils.showAlert(
-          "error",
+          "错误",
           "",
           "Error while " + not_done + " " + domain_regex + " with ID " + id,
           response.message
@@ -483,7 +483,7 @@ function editDomain() {
     error: function(jqXHR, exception) {
       utils.enableAll();
       utils.showAlert(
-        "error",
+        "错误",
         "",
         "Error while " + not_done + " " + domain_regex + " with ID " + id,
         jqXHR.responseText
@@ -507,7 +507,7 @@ function deleteDomain() {
   }
 
   utils.disableAll();
-  utils.showAlert("info", "", "Deleting " + domain_regex + "...", domain);
+  utils.showAlert("信息", "", "Deleting " + domain_regex + "...", domain);
   $.ajax({
     url: "scripts/pi-hole/php/groups.php",
     method: "post",
@@ -517,9 +517,9 @@ function deleteDomain() {
       utils.enableAll();
       if (response.success) {
         utils.showAlert(
-          "success",
+          "成功",
           "glyphicon glyphicon-trash",
-          "Successfully deleted " + domain_regex,
+          "成功地删除了 " + domain_regex,
           domain
         );
         table
@@ -529,7 +529,7 @@ function deleteDomain() {
           .ajax.reload(null, false);
       } else {
         utils.showAlert(
-          "error",
+          "错误",
           "",
           "Error while deleting " + domain_regex + " with ID " + id,
           response.message
@@ -539,7 +539,7 @@ function deleteDomain() {
     error: function(jqXHR, exception) {
       utils.enableAll();
       utils.showAlert(
-        "error",
+        "错误",
         "",
         "Error while deleting " + domain_regex + " with ID " + id,
         jqXHR.responseText

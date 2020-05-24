@@ -22,7 +22,7 @@ var daterange;
 
 var timeoutWarning = $("#timeoutWarning");
 
-var dateformat = "MMMM Do YYYY, HH:mm";
+var dateformat = "YYYY-MM-DD, HH:mm";
 
 // Do we want to filter queries?
 var GETDict = {};
@@ -50,8 +50,8 @@ $(function() {
       startDate: start__,
       endDate: end__,
       ranges: {
-        Today: [moment().startOf("day"), moment()],
-        Yesterday: [
+        "今天": [moment().startOf("day"), moment()],
+        "昨天": [
           moment()
             .subtract(1, "days")
             .startOf("day"),
@@ -59,10 +59,10 @@ $(function() {
             .subtract(1, "days")
             .endOf("day")
         ],
-        "Last 7 Days": [moment().subtract(6, "days"), moment()],
-        "Last 30 Days": [moment().subtract(29, "days"), moment()],
-        "This Month": [moment().startOf("month"), moment()],
-        "Last Month": [
+        "最近 7 天": [moment().subtract(6, "days"), moment()],
+        "最近 30 天": [moment().subtract(29, "days"), moment()],
+        "本月": [moment().startOf("month"), moment()],
+        "上月": [
           moment()
             .subtract(1, "month")
             .startOf("month"),
@@ -70,8 +70,8 @@ $(function() {
             .subtract(1, "month")
             .endOf("month")
         ],
-        "This Year": [moment().startOf("year"), moment()],
-        "All Time": [moment(0), moment()]
+        "今年": [moment().startOf("year"), moment()],
+        "全部时间": [moment(0), moment()]
       },
       opens: "center",
       showDropdowns: true,
@@ -155,11 +155,11 @@ function add(domain, list) {
 
 function handleAjaxError(xhr, textStatus) {
   if (textStatus === "timeout") {
-    alert("The server took too long to send the data.");
+    alert("服务器发送数据时间过长。");
   } else if (xhr.responseText.indexOf("Connection refused") >= 0) {
-    alert("An error occurred while loading the data: Connection refused. Is FTL running?");
+    alert("加载数据时发生错误：连接被拒绝。请检查 FTL 是否运行。");
   } else {
-    alert("An unknown error occurred while loading the data.\n" + xhr.responseText);
+    alert("加载数据时发生了一个未知错误。\n" + xhr.responseText);
   }
 
   $("#all-queries_processing").hide();
@@ -276,66 +276,66 @@ $(document).ready(function() {
       switch (data[4]) {
         case 1:
           color = "red";
-          fieldtext = "Blocked (gravity)";
+          fieldtext = "已阻止（规则）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case 2:
           color = "green";
-          fieldtext = "OK <br class='hidden-lg'>(forwarded)";
+          fieldtext = "OK<br class='hidden-lg'>（已转发）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> Blacklist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> 黑名单</button>';
           break;
         case 3:
           color = "green";
-          fieldtext = "OK <br class='hidden-lg'>(cached)";
+          fieldtext = "OK<br class='hidden-lg'>（已缓存）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> Blacklist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-red"><i class="fa fa-ban"></i> 黑名单</button>';
           break;
         case 4:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(regex blacklist)";
+          fieldtext = "已阻止<br class='hidden-lg'>（正则表达式黑名单）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case 5:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(exact blacklist)";
+          fieldtext = "已阻止<br class='hidden-lg'>（确切黑名单）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case 6:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, IP)";
+          fieldtext = "已阻止<br class='hidden-lg'>（外部，IP）";
           buttontext = "";
           break;
         case 7:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, NULL)";
+          fieldtext = "已阻止<br class='hidden-lg'>（外部，NULL）";
           buttontext = "";
           break;
         case 8:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(external, NXRA)";
+          fieldtext = "已阻止<br class='hidden-lg'>（外部，NXRA）";
           buttontext = "";
           break;
         case 9:
           color = "red";
-          fieldtext = "Blocked (gravity, CNAME)";
+          fieldtext = "已阻止（规则，CNAME）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case 10:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(regex blacklist, CNAME)";
+          fieldtext = "已阻止<br class='hidden-lg'>（正则表达式黑名单， CNAME）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         case 11:
           color = "red";
-          fieldtext = "Blocked <br class='hidden-lg'>(exact blacklist, CNAME)";
+          fieldtext = "已阻止<br class='hidden-lg'>（确切黑名单，CNAME）";
           buttontext =
-            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> Whitelist</button>';
+            '<button type="button" class="btn btn-default btn-sm text-green"><i class="fas fa-check"></i> 白名单</button>';
           break;
         default:
           color = "black";

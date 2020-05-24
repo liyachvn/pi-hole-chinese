@@ -17,32 +17,32 @@ $(function() {
   });
 });
 $(".confirm-poweroff").confirm({
-  text: "Are you sure you want to send a poweroff command to your Pi-Hole?",
-  title: "Confirmation required",
+  text: "您确认要关机吗？",
+  title: "请求确认",
   confirm: function() {
     $("#poweroffform").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, poweroff",
-  cancelButton: "No, go back",
+  confirmButton: "是，关闭系统",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-danger",
   cancelButtonClass: "btn-success",
   dialogClass: "modal-dialog modal-mg" // Bootstrap classes for mid-size modal
 });
 $(".confirm-reboot").confirm({
-  text: "Are you sure you want to send a reboot command to your Pi-Hole?",
-  title: "Confirmation required",
+  text: "您确认要重新启动吗？",
+  title: "请求确认",
   confirm: function() {
     $("#rebootform").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, reboot",
-  cancelButton: "No, go back",
+  confirmButton: "是，重新启动",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-danger",
   cancelButtonClass: "btn-success",
@@ -50,16 +50,16 @@ $(".confirm-reboot").confirm({
 });
 
 $(".confirm-restartdns").confirm({
-  text: "Are you sure you want to send a restart command to your DNS server?",
-  title: "Confirmation required",
+  text: "您确认要重新启动 DNS 服务器吗？",
+  title: "请求确认",
   confirm: function() {
     $("#restartdnsform").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, restart DNS",
-  cancelButton: "No, go back",
+  confirmButton: "是，重新启动 DNS",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-danger",
   cancelButtonClass: "btn-success",
@@ -67,16 +67,16 @@ $(".confirm-restartdns").confirm({
 });
 
 $(".confirm-flushlogs").confirm({
-  text: "Are you sure you want to flush your logs?",
-  title: "Confirmation required",
+  text: "您确认要刷新日志吗？",
+  title: "请求确认",
   confirm: function() {
     $("#flushlogsform").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, flush logs",
-  cancelButton: "No, go back",
+  confirmButton: "是，刷新日志",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-danger",
   cancelButtonClass: "btn-success",
@@ -84,16 +84,16 @@ $(".confirm-flushlogs").confirm({
 });
 
 $(".confirm-flusharp").confirm({
-  text: "Are you sure you want to flush your network table?",
-  title: "Confirmation required",
+  text: "您确认要刷新网络表吗？",
+  title: "请求确认",
   confirm: function() {
     $("#flusharpform").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, flush my network table",
-  cancelButton: "No, go back",
+  confirmButton: "是，刷新网络表",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-warning",
   cancelButtonClass: "btn-success",
@@ -101,16 +101,16 @@ $(".confirm-flusharp").confirm({
 });
 
 $(".confirm-disablelogging-noflush").confirm({
-  text: "Are you sure you want to disable logging?",
-  title: "Confirmation required",
+  text: "您确认要关闭记录写入吗？",
+  title: "请求确认",
   confirm: function() {
     $("#disablelogsform-noflush").submit();
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, disable logs",
-  cancelButton: "No, go back",
+  confirmButton: "是，关闭记录",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-warning",
   cancelButtonClass: "btn-success",
@@ -119,16 +119,16 @@ $(".confirm-disablelogging-noflush").confirm({
 
 $(".api-token").confirm({
   text:
-    "Make sure that nobody else can scan this code around you. They will have full access to the API without having to know the password. Note that the generation of the QR code will take some time.",
-  title: "Confirmation required",
+    "请确认您周围没有人能扫描这些代码。因为他们不需要知道密码就能完全访问 API 接口。请注意，二维码的生成需要一些时间。",
+  title: "请求确认",
   confirm: function() {
     window.open("scripts/pi-hole/php/api_token.php");
   },
   cancel: function() {
     // nothing to do
   },
-  confirmButton: "Yes, show API token",
-  cancelButton: "No, go back",
+  confirmButton: "是，显示 API 令牌",
+  cancelButton: "否，取消",
   post: true,
   confirmButtonClass: "btn-danger",
   cancelButtonClass: "btn-success",
