@@ -303,7 +303,7 @@ if($auth) {
                                     <a class="btn-link" href="https://github.com/pi-hole/pi-hole/releases" rel="noopener" target="_blank">升级</a>
                                 </div>
                                 <div class="col-xs-12 text-center" id="sessiontimer">
-                                    <b>会话有效期至 <span id="sessiontimercounter"><?php if($auth && strlen($pwhash) > 0){echo $maxlifetime;}else{echo "0";} ?></span></b>
+                                    <b>会话有效期剩余 <span id="sessiontimercounter"><?php if($auth && strlen($pwhash) > 0){echo $maxlifetime;}else{echo "0";} ?></span></b>
                                 </div>
                             </li>
                             <!-- Menu Footer -->
